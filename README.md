@@ -1,8 +1,19 @@
 # Descrição
+Um crud construído a partir da integração do Python com o MySQL. Esse projeto engloba um menu de opções em python onde o usuário poderá registrar produtos, lista-los, edita-los e deleta-los, as modificações são automaticamente registradas em uma tabela no banco de dados MySQL e ficam simultaneamente disponíveis para a visualização no terminal.
 # Description
+A crud built from the integration of Python with MySQL. This project includes a menu of options in Python where the user can register products, list them, edit and delete them, modifications are automatically recorded in a table in the MySQL database and are simultaneously available for viewing in the terminal
+### Importando Bibliotecas
+### Importing Libraries
+
+```
 import os
 import mysql.connector
+```
 
+### Criando o Menu
+### Creating the Menu
+
+```
 print(' ____________________________________')
 print("│Digite (1) para registrar um produto│")
 print("│Digite (2) para listar os produto   │")
@@ -12,27 +23,36 @@ print("│Digite (5) para deletar um produto  │")
 print('|____________________________________│')
 opcao = int(input())
 os.system('cls' if os.name == 'nt' else 'clear')
+```
 
+### Estabelecendo Conexão com o MySQL
+### Establishing Connection to MySQL
+
+```
 conexao = mysql.connector.connect(
     host='localhost',
     user='root',
     password='123456',
     database='CRUD_PythonSQL_',
 )
+```
 
+### Definindo Resposta para Número Inválido no Menu
+### Setting Response to Invalid Number in Menu
+
+```
 cursor = conexao.cursor()
 while opcao != 7:
     if opcao < 1 or opcao > 6:
         print("Opção inválida! Digite novamente:")
         opcao = int(input())
     else:
-        # CRUD
-        # comando = ''
-        # cursor.execute(comando)
-        # conexao.commit  # edita o banco de dados
-        # resultado = cursor.fetchall  # lê o banco de dados
+```
 
-        # create
+### Criar Produto
+### Create Product
+
+```
         if opcao == 1:
             nome_produto = input("Digite o nome do produto: ")
             valor = float(input("Digite o valor do produto: "))
@@ -43,17 +63,24 @@ while opcao != 7:
             cursor.execute(comando)
             conexao.commit()
             print("Produto registrado com sucesso!")
+```
 
+### Ler Produtos Ordenados por Ordem Alfabética
+### Read Products Sorted in Alphabetical Order
 
-# read
+```
         elif opcao == 2:
             comando = f'SELECT*FROM vendas ORDER BY nome_produto'
             cursor.execute(comando)
             resultado = cursor.fetchall()
             print(resultado)
+```
 
 
-# update
+### Editar Valor do produto
+### Edit Product value
+
+```
         elif opcao == 3:
             comando = f'SELECT*FROM vendas ORDER BY nome_produto'
             cursor.execute(comando)
@@ -69,8 +96,12 @@ while opcao != 7:
 
             cursor.execute(comando)
             conexao.commit()
+```
 
-# editar estoque
+### Editar Quantidade de Estoque do Produto
+### Edit Product Stock Quantity
+
+```
         elif opcao == 4:
             comando = f'SELECT*FROM vendas ORDER BY nome_produto'
             cursor.execute(comando)
@@ -84,8 +115,12 @@ while opcao != 7:
                 "\nEstoque do produto editado com sucesso! Digite 2 para visualizar a lista atualizada.\n")
             cursor.execute(comando)
             conexao.commit()
+```
 
-# deletar
+### Deletar Produto
+### Delete Product
+
+```
         elif opcao == 5:
             comando = f'SELECT*FROM vendas ORDER BY nome_produto'
             cursor.execute(comando)
@@ -99,7 +134,12 @@ while opcao != 7:
                 "\nProduto deletado com sucesso! Digite 2 para visualizar a lista atualizada.\n")
             cursor.execute(comando)
             conexao.commit()
+```
 
+### Finalizando Código
+### Finalizing Code
+
+```
     print(' ____________________________________')
     print("│Digite (1) para registrar um produto│")
     print("│Digite (2) para listar os produtos  │")
@@ -112,3 +152,4 @@ while opcao != 7:
     os.system('cls' if os.name == 'nt' else 'clear')
     cursor.close
     conexao.close
+```
