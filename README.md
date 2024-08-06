@@ -1,7 +1,7 @@
 # Descrição
-Construído a partir da integração do Python com o MySQL, esse projeto engloba um menu de opções em python onde o usuário poderá registrar produtos, lista-los, edita-los e deleta-los. As modificações são automaticamente registradas em uma tabela no banco de dados MySQL e ficam simultaneamente disponíveis para a visualização no terminal. O DDL para construção do banco de dados MySQL está no arquivo dentro desse repositório, chamado: "DDL SQL"
+Construído a partir da integração do Python com o MySQL, esse projeto engloba um menu de opções em python onde o usuário poderá registrar produtos, lista-los, edita-los e deleta-los. As modificações são automaticamente registradas em uma tabela no banco de dados MySQL e ficam simultaneamente disponíveis para a visualização no terminal. O DDL para construção do banco de dados MySQL está no arquivo dentro desse repositório, chamado: "MySQL DDL"
 # Description
-Built from the integration of Python with MySQL, this project includes a menu of options in Python where the user can register products, list them, edit and delete them. Modifications are automatically recorded in a table in the database. MySQL data and are simultaneously available for viewing in the terminal. The DDL for building the MySQL database is in the file within this repository, called: "DDL SQL"
+Built from the integration of Python with MySQL, this project includes a menu of options in Python where the user can register products, list them, edit and delete them. Modifications are automatically recorded in a table in the database. MySQL data and are simultaneously available for viewing in the terminal. The DDL for building the MySQL database is in the file within this repository, called: "MySQL DDL"
 ### Importando Bibliotecas
 ### Importing Libraries
 
